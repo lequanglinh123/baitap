@@ -32,57 +32,54 @@ class StudentList{
         this.deleteHTMl();
         this.listStudent.forEach(student => student.showHTML());
     }
-    // why???????????
-    // show15YOStudents(){
-    //     this.deleteHTMl();
-    //     this.listStudent.filter((v) => {
-    //         v.age === 15;
-    //     }).forEach(student => student.showHTML());
-    // }
     show15YOStudents(){
         this.deleteHTMl();
-        for(let i = 0; i < this.listStudent.length; i++){
-            if(this.listStudent[i].age === 15){
-                returnValue.push(this.listStudent[i]);
-            }
-        }
-        returnValue.forEach(student => student.showHTML());
-        returnValue=[];
+        this.listStudent.filter((v) => {
+           return v.age === 15;
+        }).forEach(student => student.showHTML());
     }
-    // why???????????????
-    // show18YOStudents(){
+    // show15YOStudents(){
     //     this.deleteHTMl();
-    //     this.listStudent.filter((v) => {
-    //         v.age > 18 && v.address === "hn";
-    //     }).forEach(student => student.showHTML());
-    // }
+    //     for(let i = 0; i < this.listStudent.length; i++){
+    //         if(this.listStudent[i].age === 15){
+    //             returnValue.push(this.listStudent[i]);
+    //         }
+    //     }
+    //     returnValue.forEach(student => student.showHTML());
+    //     returnValue=[];
+    // } 
     show18YOStudents(){
         this.deleteHTMl();
-        for(let i = 0; i < this.listStudent.length; i++){
-            if(this.listStudent[i].age === 18 && this.listStudent[i].address==="hn" ){
-                returnValue.push(this.listStudent[i]);
-            }
-        }
-        returnValue.forEach(student => student.showHTML());
-        returnValue=[];
+        this.listStudent.filter((v) => {
+            return v.age > 18 && v.address === "hn";
+        }).forEach(student => student.showHTML());
     }
-    // why???????????????????????????????????
-    // findStudent(name){
+    // show18YOStudents(){
     //     this.deleteHTMl();
-    //     this.listStudent.filter((v) => {
-    //         v.name === name;
-    //     }).forEach(student => student.showHTML());
+    //     for(let i = 0; i < this.listStudent.length; i++){
+    //         if(this.listStudent[i].age === 18 && this.listStudent[i].address==="hn" ){
+    //             returnValue.push(this.listStudent[i]);
+    //         }
+    //     }
+    //     returnValue.forEach(student => student.showHTML());
+    //     returnValue=[];
     // }
     findStudent(name){
         this.deleteHTMl();
-        for(let i = 0; i < this.listStudent.length; i++){
-            if(this.listStudent[i].name === name){
-                returnValue.push(this.listStudent[i]);
-            }
-        }
-        returnValue.forEach(student => student.showHTML());
-        returnValue=[];
+        this.listStudent.filter((v) => {
+            return v.name === name;
+        }).forEach(student => student.showHTML());
     }
+    // findStudent(name){
+    //     this.deleteHTMl();
+    //     for(let i = 0; i < this.listStudent.length; i++){
+    //         if(this.listStudent[i].name === name){
+    //             returnValue.push(this.listStudent[i]);
+    //         }
+    //     }
+    //     returnValue.forEach(student => student.showHTML());
+    //     returnValue=[];
+    // }
     deleteEverything(){
         this.listStudent = [];
         this.deleteHTMl();
