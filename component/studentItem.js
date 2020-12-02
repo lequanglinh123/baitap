@@ -1,9 +1,7 @@
 class StudentItem extends HTMLElement{
-    construct(){
+    constructor(){
         super();
         this._shadowDom = this.attachShadow({mode : 'open'})
-    }
-    connectedCallback(){
         this.name = this.getAttribute('name')
         this.phone = this.getAttribute('class')
         this.age = this.getAttribute('age')
@@ -12,8 +10,7 @@ class StudentItem extends HTMLElement{
             <div>${this.name}</div>
             <div>${this.phone}</div>
             <div>${this.age}</div>
-            <div>${this.address}</div>
-        `
+            <div>${this.address}</div> `
     }
 }
 window.customElements.define("student-item", StudentItem)

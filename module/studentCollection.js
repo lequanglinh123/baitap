@@ -1,16 +1,11 @@
-import {Student} from './studentCollection'
+import {Student} from './student.js'
 export class StudentCollection{
-    listStudent;
-    construct(){
-        this.listStudent = []
+    listStudent;    
+    constructor(){
+        this.listStudent = [];
     }
     addStudent(student){
-        if(student instanceof Student){
-            this.listStudent.push(student)
-        }
-        else{
-            alert('nhap sai')
-        }
+        this.listStudent.push(student);
     }
     getStudentByAge(age){
         return this.listStudent.filter(student =>{
@@ -24,8 +19,7 @@ export class StudentCollection{
     }
     getStudentByName(name){
         return this.listStudent.filter(student =>{
-            return student.name === name
+            return student.name === name;
         })
-    }
-    
+    }  
 }

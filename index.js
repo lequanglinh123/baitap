@@ -1,7 +1,7 @@
 import {Student} from './module/student.js';
 import {StudentCollection} from './module/studentCollection.js';
 import './component/studentItem.js'
-import {getDataFromDoc, getDataFromDocs, getStudentsFromData} from './untils.js'
+import {getDataFromDoc, getDataFromDocs} from './untils.js'
 const studentCollection = new StudentCollection;
 
 async function  getOneData(){
@@ -9,19 +9,23 @@ async function  getOneData(){
     let user = getDataFromDoc(res)
     return user;
 }
-
 async function getAllData(){
     let res = await firebase.firestore().collection('User').get();
     let users = getDataFromDocs(res);
-    users.map(data =>{
-        let student = getStudentsFromData(data);
-        StudentCollection.listStudent.push(student);
-    })
+    // console.log(users.length);
+    // for (const item of users) {
+    //     studentCollection.addStudent(item);
+    // }
+    studentCollection.addStudent(users[0])
+    studentCollection.addStudent(users[1])
+    studentCollection.addStudent(users[2])
 }
 getAllData();
-let html =``;
-for(const iteration of studentCollection.listStudent){
-    html+=`<student-item name="${iteration.name}" phone="${iteration.phone}" age="${iteration.age}" address="${iteration.address}"></student-item>`
+// listStudent is obj not an array????
+let html = '';
+for (const i of studentCollection.listStudent) {
+    html+=`<student-item name="${i.name}" phone="${i.phone}" address="${i.address}" age="${i.age}"></student-item>`
 }
-document.getElementById("app").innerHTML=html;
-// console.log(studentCollection);
+console.log(html);
+document.getElementById("app").innerHTML = html;
+console.log(studentCollection.listStudent);
